@@ -26,7 +26,6 @@ def push(bot, job):
 
 def set_timer(bot, update, args, job_queue, chat_data):
     logger.info("Setting timer")
-    chat_id = update.message.chat_id
     try:
         interval = int(args[0])
         if interval < 0:
@@ -36,7 +35,7 @@ def set_timer(bot, update, args, job_queue, chat_data):
             update.message.reply_text('Interval should be minimum of 5 minutes. i.e. 300 seconds.')
             return
 
-        job = job_queue.run_repeating(push, interval=interval, first=0, context=update.message.chat_id)
+        job_queue.run_repeating(push, interval=interval, first=0, context=update.message.chat_id)
 
         update.message.reply_text('Yes, my love ♥️ !')
 

@@ -46,7 +46,7 @@ class Reddit:
     print("Getting latest posts")
     posts = []
     for subreddit in self.favorite_subreddits:
-      for index, submission in enumerate(self.reddit.subreddit(subreddit).hot(limit=5)):
+      for submission in self.reddit.subreddit(subreddit).hot(limit=5):
         submission_results = self.db.search((self.db_query.id == submission.id) & (self.db_query.subreddit == subreddit))
         if submission_results:
           self.insert_to_db(subreddit, submission)
