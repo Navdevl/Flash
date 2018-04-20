@@ -48,7 +48,7 @@ class Reddit:
     for subreddit in self.favorite_subreddits:
       for index, submission in enumerate(self.reddit.subreddit(subreddit).hot(limit=5)):
         submission_results = self.db.search((self.db_query.id == submission.id) & (self.db_query.subreddit == subreddit))
-        if len(submission_results) == 0:
+        if submission_results:
           self.insert_to_db(subreddit, submission)
           posts.append([subreddit, submission])
       time.sleep(1)
