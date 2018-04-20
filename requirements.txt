@@ -1,0 +1,11 @@
+certifi==2018.4.16
+chardet==3.0.4
+future==0.16.0
+idna==2.6
+praw==5.4.0
+prawcore==0.14.0
+python-telegram-bot==10.0.2
+requests==2.18.4
+tinydb==3.8.1.post1
+update-checker==0.16
+urllib3==1.22
